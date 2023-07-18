@@ -1,0 +1,61 @@
+<html>
+<head>
+  <title>Table with images</title>
+
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function App() {
+      const Cars = [
+        {
+          name: "Car2",
+          color: "Blue",
+          img:"car1.jpg"
+        },
+        {
+          name: "Car3",
+          color: "Red",
+          img: "car2.jpg"
+        },
+        {
+          name: "Car5",
+          color: "Cyan",
+         img: "car3.jpg"
+        }
+      ];
+
+      return (
+        <table>
+          <thead>
+            <tr>
+              <th>NAME</th>
+              <th>COLOR</th>
+              <th>PRICE</th>
+             
+            </tr>
+          </thead>
+          <tbody>
+            {Cars.map((car, index) => (
+              <tr key={index}>
+                <td>{car.name}</td>
+                <td>{car.color}</td>
+                <td><img src={car.img}/>
+                    
+                    </td>
+                
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      );
+    }
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>
