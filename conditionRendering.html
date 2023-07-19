@@ -1,0 +1,122 @@
+<!-- We just need to render any one component -->
+
+
+
+<html>
+<head>
+  <title>Table with images</title>
+
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function App() {
+      const Cars = [
+        {
+          name: "Car2",
+          color: "Blue",
+          img:"car1.jpg"
+        },
+        {
+          name: "Car3",
+          color: "Red",
+          img: "car2.jpg"
+        },
+        {
+          name: "Car5",
+          color: "Cyan",
+         img: "car3.jpg"
+        }
+      ];
+
+      return (
+        <table>
+          <thead>
+            <tr>
+              <th>NAME</th>
+              <th>COLOR</th>
+              <th>PRICE</th>
+             
+            </tr>
+          </thead>
+          <tbody>
+            {Cars.map((car, index) => (
+              <tr key={index}>
+                <td>{car.name}</td>
+                <td>{car.color}</td>
+                <td><img src={car.img}/>
+                    
+                    </td>
+                
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      );
+    }
+
+   
+
+
+
+
+    function Std(){
+    const students=[{name:"Student1",age:10,class:5},
+                    {name:"Student2",age:9,class:3},
+                    {name:"Student1",age:11,class:6}
+    ]
+
+    return(
+       
+        <table>
+                <thead>
+                    <tr>
+            <th>Student </th>
+            <th>Age </th>
+            <th>Class </th>
+                  </tr>
+                  
+                </thead>
+                    <tbody>
+                        {students.map((student,index)=>(
+                            <tr key={index}>
+                            <td>{student.name}</td>
+                            <td>{student.age}</td>
+                            <td>{student.class}</td>
+                            
+                            </tr>
+                            ))}
+                    </tbody>
+            </table>
+    )
+   }
+
+   function SCars(){
+    let Values=false;
+// Condition
+if(Values){
+    return( <App />)
+}
+
+
+    return(
+        <>
+           
+            <Std />
+
+        </>
+            )
+   }
+
+
+   ReactDOM.createRoot(document.getElementById('root')).render(<SCars />)
+
+
+
+  </script>
+</body>
+</html>
