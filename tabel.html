@@ -1,0 +1,47 @@
+
+<html>
+<head>
+  <title>Starting with JSX (Rendering ARRAY and OBJ)</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+   function Ar(){
+    const students=[{name:"Student1",age:10,class:5},
+                    {name:"Student2",age:9,class:3},
+                    {name:"Student1",age:11,class:6}
+    ]
+
+    return(
+       
+        <table>
+                <thead>
+                    <tr>
+            <th>Student </th>
+            <th>Age </th>
+            <th>Class </th>
+                  </tr>
+                  
+                </thead>
+                    <tbody>
+                        {students.map((student,index)=>(
+                            <tr key={index}>
+                            <td>{student.name}</td>
+                            <td>{student.age}</td>
+                            <td>{student.class}</td>
+                            
+                            </tr>
+                            ))}
+                    </tbody>
+            </table>
+        
+    )
+   }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<Ar />);
+  </script>
+</body>
+</html>
